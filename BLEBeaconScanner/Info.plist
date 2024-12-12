@@ -10,8 +10,12 @@
     <string>アプリがバックグラウンドで位置情報を使用します。</string>
     <key>UIBackgroundModes</key>
     <array>
+        <string>bluetooth-central</string>
         <string>fetch</string>
         <string>location</string>
+        <string>processing</string>
+        <string>external-accessory</string>
+        <string>bluetooth-peripheral</string>
     </array>
     <key>NSAppTransportSecurity</key>
     <dict>
