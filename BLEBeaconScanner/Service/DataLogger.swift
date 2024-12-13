@@ -18,8 +18,8 @@ class DataLogger {
         let filePath = getDocumentsDirectory().appendingPathComponent(fileName)
         if !FileManager.default.fileExists(atPath: filePath.path) {
             // ヘッダー行を作成
-            let header = "MAC Address,RSSI,Timestamp\n"
-            try? header.write(to: filePath, atomically: true, encoding: .utf8)
+            //let header = "MACAddress,RSSI,Timestamp\n"
+            //try? header.write(to: filePath, atomically: true, encoding: .utf8)
         }
     }
 

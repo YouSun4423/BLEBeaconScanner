@@ -17,18 +17,15 @@ class SendDataService {
             print("Invalid base URL")
             return
         }
-                
-        // エンコード処理
-        guard let encodedData = csvData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            print("Failed to encode CSV data")
-            return
-        }
+        
+        // 改行コードを統一 (UNIXスタイルの改行 `\n` に変換)
+        let normalizedCSVData = csvData.replacingOccurrences(of: "\r\n", with: "\n")
         
         // リクエスト作成
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "dataCSV=\(encodedData)".data(using: .utf8)
+        request.setValue("text/csv", forHTTPHeaderField: "Content-Type") // Content-Typeを適切に設定
+        request.httpBody = normalizedCSVData.data(using: .utf8) // 生のCSVデータを送信
         
         // リクエスト送信
         let task = URLSession.shared.dataTask(with: request) { data, response, error in

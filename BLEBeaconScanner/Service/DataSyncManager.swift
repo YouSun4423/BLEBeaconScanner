@@ -134,7 +134,7 @@ class DataSyncManager: NSObject, ObservableObject {
         }
         
         // CSVのヘッダー
-        var csvString = "MAC Address,RSSI,Timestamp,Latitude,Longitude,Altitude,Floor,Device ID\n"
+        var csvString = ""
         
         // 各ペリフェラルデータをCSV行として追加
         for peripheral in peripherals {
