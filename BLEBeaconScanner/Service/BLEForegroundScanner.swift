@@ -59,7 +59,7 @@ class BLEForegroundScanner: NSObject, CBCentralManagerDelegate {
                             "identifier": peripheral.identifier.uuidString,
                             "RSSI": RSSI,
                             "name": peripheral.name,
-                            "serviceUUIDs": serviceUUIDStrings
+                            "serviceUUID": serviceUUIDStrings
                         ]
                     }
 
