@@ -138,7 +138,7 @@ class DataSyncManager: NSObject, ObservableObject {
         
         // 各ペリフェラルデータをCSV行として追加
         for peripheral in peripherals {
-            guard let macAddress = peripheral["serviceUUID"] as? String,
+            guard let macAddress = peripheral["identifier"] as? String,
                   let rssi = peripheral["RSSI"] as? Int else {
                 continue
             }
